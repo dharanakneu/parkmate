@@ -72,7 +72,7 @@ public class ProfileController {
                 redirectAttributes.addFlashAttribute("user", updatedRentee);
             }
 
-            redirectAttributes.addFlashAttribute("success", "Profile updated successfully.");
+            redirectAttributes.addFlashAttribute("success", "Profile updated successfully!");
 
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Failed to update profile. Please try again.");
