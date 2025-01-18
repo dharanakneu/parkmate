@@ -6,8 +6,9 @@ RUN apt-get update && apt-get install -y maven
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the local code to the container
-COPY . .
+# Copy pom.xml and src directory to the container
+COPY pom.xml .
+COPY src /src
 
 # Run Maven to build the application
 RUN mvn clean package -DskipTests

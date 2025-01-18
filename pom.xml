@@ -175,6 +175,13 @@
 			<artifactId>osdt_cert</artifactId>
 			<version>21.16.0.0</version>
 		</dependency>
+		<!-- JSTL dependency -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.3</version>
+			<scope>provided</scope>
+		</dependency>
 
 	</dependencies>
 
