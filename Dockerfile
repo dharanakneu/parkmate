@@ -17,6 +17,9 @@ FROM openjdk:23-jdk-slim
 # Set the working directory inside the container
 WORKDIR /app
 
+# Install unzip
+RUN apt-get update && apt-get install -y unzip
+
 # Copy the JAR file from the builder stage
 COPY --from=builder /app/target/parkmate-0.0.1-SNAPSHOT.war /app/parkmate.war
 
