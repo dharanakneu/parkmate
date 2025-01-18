@@ -18,15 +18,21 @@ public class HibernateConfig {
     @Bean
     public SessionFactory getSessionFactory() {
         Map<String, Object> settings = new HashMap<>();
-        settings.put("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
-        settings.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/parking_db?createDatabaseIfNotExist=true");
-        settings.put("hibernate.connection.username", "root");
-        settings.put("hibernate.connection.password", "Groot@123");
+        settings.put("hibernate.connection.driver_class", "oracle.jdbc.OracleDriver");
+
+        // Fetching secrets from environment variables
+        String dbUrl = System.getenv("DB_URL");
+        String dbUsername = System.getenv("DB_USERNAME");
+        String dbPassword = System.getenv("DB_PASSWORD");
+
+        settings.put("hibernate.connection.url", dbUrl);
+        settings.put("hibernate.connection.username", dbUsername);
+        settings.put("hibernate.connection.password", dbPassword);
 
         //settings.put("hibernate.current_session_context_class", "spring");
 
         settings.put("hibernate.hbm2ddl.auto", "update");
-        settings.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+        settings.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
         settings.put("hibernate.dialect.storage_engine", "innodb");
         settings.put("hibernate.show-sql", "true");
 
